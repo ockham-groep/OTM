@@ -1,6 +1,6 @@
 view: otmConstraint {
   label: "Constraint"
-  sql_table_name: otm.otmConstraint ;;
+  sql_table_name: otmConstraint ;;
   dimension: Constraint_name {
     description: "Constraint name"
     type: string
