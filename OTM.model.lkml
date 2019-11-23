@@ -1,4 +1,4 @@
-connection: "OTM_DEV"
+connection: "otm_dev"
 
 include: "*.view.lkml"                       # include all views in this project
 # include: "my_dashboard.dashboard.lookml"   # include a LookML dashboard called my_dashboard
@@ -18,7 +18,7 @@ include: "*.view.lkml"                       # include all views in this project
 #   }
 # }
 
-label: "Ockhams Treasure Map"
+label: "1) Ockhams Treasure Map"
 explore: Intake {
   from: otmDBMSVersionEdition
   join: otmMemo {
