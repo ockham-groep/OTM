@@ -21,7 +21,7 @@ include: "*.view.lkml"                       # include all views in this project
 label: "1) Ockhams Treasure Map"
 
 explore: Intake {
-  from: otmDBMSX
+  from: otmDBMS
   join: otmDBMSVersionX {
     type: left_outer
     relationship: one_to_many
@@ -36,7 +36,7 @@ explore: Intake {
     type: left_outer
     relationship: one_to_many
     sql_on: ${otmDBMSVersionEditionX.product_name} = ${otmDBMSVersionX.product_name}
-        and ${otmDBMSVersionEditionX.product_version} = ${otmDBMSVersionEditionX.product_version}
+        and ${otmDBMSVersionEditionX.product_version} = ${otmDBMSVersionX.product_version}
         and ${otmDBMSVersionEditionX.product_name} = ${otmDBMSEditionX.product_name}
         and ${otmDBMSVersionEditionX.product_edition} = ${otmDBMSEditionX.product_edition} ;;
   }
