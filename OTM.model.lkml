@@ -19,10 +19,29 @@ include: "*.view.lkml"                       # include all views in this project
 # }
 
 label: "1) Ockhams Treasure Map"
+
 explore: Intake {
-  from: otmDBMSVersionEdition
-  join: otmMemo {
+  from: otmDBMSX
+  join: otmDBMSVersionX {
+    type: left_outer
     relationship: one_to_many
-    sql_on: ${Intake.memo_id} = ${otmMemo.memo_id} ;;
+    sql_on: ${otmDBMSVersionX.product_name} = ${Intake.product_name} ;;
+  }
+  join: otmDBMSEditionX {
+    type: left_outer
+    relationship: one_to_many
+    sql_on: ${otmDBMSEditionX.product_name} = ${Intake.product_name} ;;
+  }
+  join: otmDBMSVersionEditionX {
+    type: left_outer
+    relationship: one_to_many
+    sql_on: ${otmDBMSVersionEditionX.product_name} = ${otmDBMSVersionX.product_name}
+        and ${otmDBMSVersionEditionX.product_version} = ${otmDBMSVersionEditionX.product_version}
+        and ${otmDBMSVersionEditionX.product_name} = ${otmDBMSEditionX.product_name}
+        and ${otmDBMSVersionEditionX.product_edition} = ${otmDBMSEditionX.product_edition} ;;
   }
 }
+
+#explore: Staging {
+#  from: otsIndex
+#}
