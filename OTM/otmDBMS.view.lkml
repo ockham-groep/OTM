@@ -1,6 +1,6 @@
 view: otmDBMS {
   label: "DBMS"
-#  sql_table_name: OTM.OTMDBMS ;;
+  sql_table_name: OTM.OTMDBMS ;;
 
   dimension: memo {
     type: string

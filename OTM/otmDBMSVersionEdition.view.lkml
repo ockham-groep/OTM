@@ -1,16 +1,6 @@
-view: otmDBMSVersionEditionX {
+view: otmDBMSVersionEdition {
   label: "Installation"
-#  sql_table_name: OTM.OTMDBMSVERSIONEDITION ;;
-  derived_table: {
-    sql: select PRODUCTNAME
-              , PRODUCTVERSION
-              , PRODUCTEDITION
-              , MEMOTYPE
-              , dbms_lob.substr( MEMO, 4000, 1 ) MEMO
-           from OTM.OTMDBMSVERSIONEDITION p
-             left outer join OTM.OTMMEMO m
-               on m.MEMOID = p.MEMOID ;;
-  }
+  sql_table_name: OTM.OTMDBMSVERSIONEDITION ;;
 
   dimension: memo {
     type: string
@@ -21,11 +11,6 @@ view: otmDBMSVersionEditionX {
     hidden: yes
     type: number
     sql: ${TABLE}.MEMOID ;;
-  }
-
-  dimension: memo_type {
-    type: string
-    sql: ${TABLE}.MEMOTYPE ;;
   }
 
   dimension: pk {
