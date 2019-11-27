@@ -9,7 +9,7 @@ view: otsQcTableColumnWoTable {
           WHERE NOT exists ( SELECT 1
                                FROM OTM_STAGING.OTSTABLE tab
                               WHERE tab.RUNID = tc.RUNID
-                                AND NVL( tab.CATALOG_NAME, 'leeg') = NVL( tc.CATALOGNAME, 'leeg')
+                                AND NVL( tab.CATALOGNAME, 'leeg') = NVL( tc.CATALOGNAME, 'leeg')
                                 AND tab.SCHEMANAME = tc.SCHEMANAME
                                 AND tab.TABLENAME = tc.TABLENAME) ;;
   }
