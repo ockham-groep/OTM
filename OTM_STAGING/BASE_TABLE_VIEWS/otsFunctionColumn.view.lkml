@@ -126,13 +126,14 @@ view: otsFunctionColumn {
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
+      run_id,
+      catalog_name,
+      schema_name,
+      function_name,
       package_name,
       specific_name,
       type_name,
-      column_name,
-      function_name,
-      schema_name,
-      catalog_name
+      column_name
     ]
   }
 }

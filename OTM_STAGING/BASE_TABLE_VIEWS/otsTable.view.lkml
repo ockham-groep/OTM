@@ -56,6 +56,10 @@ view: otsTable {
   dimension: table_name {
     type: string
     sql: ${TABLE}.TABLENAME ;;
+    link: {
+      label: "Table columns"
+      url: "/explore/OTM/Staging?fields=otsTableColumn.run_id,otsTableColumn.catalog_name,otsTableColumn.schema_name,otsTableColumn.table_name,otsTableColumn.column_name&f[otsTableColumn.table_name]={{ value }}&F[otsTableColumn.column_name]=\"DELETERULE\""
+    }
   }
 
   dimension: table_type {
@@ -80,20 +84,18 @@ view: otsTable {
 
   measure: count {
     type: count
-    drill_fields: [detail*]
+    drill_fields: [table_list*]
   }
 
   # ----- Sets of fields for drilling ------
-  set: detail {
+  set: table_list {
     fields: [
-      self_referencing_column_name,
-      type_name,
-      table_name,
-      type_schema_name,
-      type_catalog_name,
+      run_id,
       catalog_name,
       schema_name,
-      super_table_name
+      table_name,
+      table_type,
+      remarks
     ]
   }
 }

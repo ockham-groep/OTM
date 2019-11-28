@@ -50,6 +50,16 @@ view: otsProcedure {
 
   measure: count {
     type: count
-    drill_fields: [catalog_name, schema_name, procedure_name, package_name, specific_name]
+    drill_fields: [detail*]
+  }
+
+  # ----- Sets of fields for drilling ------
+  set: detail {
+    fields: [
+      run_id,
+      catalog_name,
+      schema_name,
+      procedure_name
+    ]
   }
 }

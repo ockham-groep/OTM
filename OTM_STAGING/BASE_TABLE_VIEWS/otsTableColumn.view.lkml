@@ -126,14 +126,15 @@ view: otsTableColumn {
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
-      scope_table_name,
-      scope_schema_name,
-      scope_catalog_name,
+      run_id,
       catalog_name,
       schema_name,
       table_name,
       column_name,
-      type_name
+      type_name,
+      scope_catalog_name,
+      scope_schema_name,
+      scope_table_name
     ]
   }
 }

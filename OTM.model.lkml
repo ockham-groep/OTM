@@ -6,7 +6,7 @@ connection: "otm_dev"
 
 include: "OTM/*.view.lkml"                       # include all views in this project
 include: "OTM_STAGING/BASE_TABLE_VIEWS/*.view.lkml"
-include: "OTM_STAGING/QUALITY_CONTROL_VIEWS/*.view.lkml"
+include: "OTM_STAGING/QUALITY_CHECK_VIEWS/*.view.lkml"
 
 # include: "my_dashboard.dashboard.lookml"   # include a LookML dashboard called my_dashboard
 
@@ -135,6 +135,11 @@ explore: Staging {
     type: left_outer
     relationship: one_to_many
     sql_on: ${otsTableColumnPrivilege.run_id} = ${Staging.run_id} ;;
+  }
+  join: otsQcFKeyWoFKeyColumn {
+    type:  left_outer
+    relationship: one_to_many
+    sql_on: ${otsQcFKeyWoFKeyColumn.run_id} = ${Staging.run_id} ;;
   }
   join: otsQcTableColumnWoTable {
     type:  left_outer

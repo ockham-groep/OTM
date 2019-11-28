@@ -52,4 +52,15 @@ view: otsType {
     type: count
     drill_fields: [schema_name, type_name, class_name, catalog_name]
   }
+
+  # ----- Sets of fields for drilling ------
+  set: detail {
+    fields: [
+      run_id,
+      catalog_name,
+      schema_name,
+      type_name,
+      remarks
+    ]
+  }
 }

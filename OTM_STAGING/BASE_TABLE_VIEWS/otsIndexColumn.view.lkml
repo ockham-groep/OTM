@@ -50,6 +50,17 @@ view: otsIndexColumn {
 
   measure: count {
     type: count
-    drill_fields: [index_name, table_name, schema_name, catalog_name, column_name]
+    drill_fields: [detail*]
+  }
+
+  # ----- Sets of fields for drilling ------
+  set: detail {
+    fields: [
+      run_id,
+      catalog_name,
+      schema_name,
+      index_name,
+      column_name
+    ]
   }
 }

@@ -131,6 +131,7 @@ view: otsProcedureColumn {
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
+      run_id,
       catalog_name,
       schema_name,
       procedure_name,

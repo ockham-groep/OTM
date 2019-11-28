@@ -49,6 +49,18 @@ view: otsFunction {
 
   measure: count {
     type: count
-    drill_fields: [package_name, specific_name, function_name, schema_name, catalog_name]
+    drill_fields: [detail*]
+  }
+
+  # ----- Sets of fields for drilling ------
+  set: detail {
+    fields: [
+      run_id,
+      catalog_name,
+      schema_name,
+      function_name,
+      package_name,
+      specific_name
+    ]
   }
 }

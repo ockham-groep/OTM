@@ -81,14 +81,15 @@ view: otsForeignKey {
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
-      fk_table_name,
-      pk_schema_name,
-      pk_table_name,
-      pk_name,
+      run_id,
       fk_catalog_name,
       fk_schema_name,
+      fk_table_name,
+      fk_name,
       pk_catalog_name,
-      fk_name
+      pk_schema_name,
+      pk_table_name,
+      pk_name
     ]
   }
 }

@@ -116,14 +116,15 @@ view: otsTypeAttribute {
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
-      attribute_name,
-      scope_table_name,
-      schema_name,
-      scope_schema_name,
+      run_id,
       catalog_name,
-      attribute_type_name,
+      schema_name,
+      type_name,
+      attribute_name,
       scope_catalog_name,
-      type_name
+      scope_schema_name,
+      scope_table_name,
+      attribute_type_name
     ]
   }
 }

@@ -51,11 +51,12 @@ view: otsTypeHierarchy {
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
-      schema_name,
+      run_id,
       catalog_name,
+      schema_name,
       type_name,
-      super_schema_name,
       super_catalog_name,
+      super_schema_name,
       super_type_name
     ]
   }

@@ -57,4 +57,16 @@ view: otsTableColumnPrivilege {
     type: count
     drill_fields: [column_name, catalog_name, schema_name, table_name]
   }
+
+  # ----- Sets of fields for drilling ------
+  set: detail {
+    fields: [
+      run_id,
+      catalog_name,
+      schema_name,
+      table_name,
+      column_name,
+      grantee
+    ]
+  }
 }
