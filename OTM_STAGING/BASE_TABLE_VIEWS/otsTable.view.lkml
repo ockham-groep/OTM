@@ -58,7 +58,7 @@ view: otsTable {
     sql: ${TABLE}.TABLENAME ;;
     link: {
       label: "Table columns"
-      url: "/explore/OTM/Staging?fields=otsTableColumn.run_id,otsTableColumn.catalog_name,otsTableColumn.schema_name,otsTableColumn.table_name,otsTableColumn.column_name&f[otsTableColumn.table_name]={{ value }}&F[otsTableColumn.column_name]=\"DELETERULE\""
+      url: "/explore/OTM/Staging?fields=otsTableColumn.table_name,otsTableColumn.column_name&f[Staging.run_id]={{ run_id._value }}&f[otsTableColumn.catalog_name]={{ catalog_name._value }}&f[otsTableColumn.schema_name]={{ schema_name._value }}&f[otsTableColumn.table_name]={{ value }}"
     }
   }
 
