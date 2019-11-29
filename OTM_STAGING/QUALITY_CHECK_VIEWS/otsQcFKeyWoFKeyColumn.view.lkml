@@ -13,7 +13,7 @@ view: otsQcFKeyWoFKeyColumn {
                                 AND fkc.FKSCHEMANAME = fk.FKSCHEMANAME
                                 AND fkc.FKTABLENAME = fk.FKTABLENAME) ;;
   }
-  label: "QC Table without Table column"
+  label: "QC FKey without FKey column"
 
   dimension: fk_catalog_name {
     type: string

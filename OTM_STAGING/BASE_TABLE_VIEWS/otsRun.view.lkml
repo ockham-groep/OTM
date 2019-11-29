@@ -6,6 +6,16 @@ view: otsRun {
     primary_key: yes
     type: number
     sql: ${TABLE}.RUNID ;;
+    link: {
+      label: "Object counts"
+      url: "/explore/OTM/Staging?fields=otsTable.count,otsPrimaryKey.count,otsForeignKey.count,otsIndex.count&f[otsRun.run_id]={{ value }}"
+    }
+    }
+
+  dimension: newest {
+    type: yesno
+    sql: ${run_id} = (SELECT MAX( r2.RUNID) FROM OTM_STAGING.OTSRUN r2);;
+#    sql: ${ts_start_raw} = (SELECT MAX( r2.TSSTART) FROM OTM_STAGING.OTSRUN r2);;
   }
 
   dimension_group: ts_finish {
