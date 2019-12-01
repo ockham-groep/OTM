@@ -51,6 +51,10 @@ view: otsTableColumnPrivilege {
   dimension: table_name {
     type: string
     sql: ${TABLE}.TABLENAME ;;
+    link: {
+      label: "Table columns"
+      url: "/explore/OTM/Staging?fields=otsTableColumn.table_name,otsTableColumn.column_name&f[Staging.run_id]={{ run_id._value }}&f[otsTableColumn.catalog_name]={{ catalog_name._value }}&f[otsTableColumn.schema_name]={{ schema_name._value }}&f[otsTableColumn.table_name]={{ value }}"
+    }
   }
 
   measure: count {

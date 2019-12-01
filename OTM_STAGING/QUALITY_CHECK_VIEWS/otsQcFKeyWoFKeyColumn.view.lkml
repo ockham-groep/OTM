@@ -11,7 +11,8 @@ view: otsQcFKeyWoFKeyColumn {
                               WHERE fkc.RUNID = fk.RUNID
                                 AND NVL( fkc.FKCATALOGNAME, 'leeg') = NVL( fk.FKCATALOGNAME, 'leeg')
                                 AND fkc.FKSCHEMANAME = fk.FKSCHEMANAME
-                                AND fkc.FKTABLENAME = fk.FKTABLENAME) ;;
+                                AND fkc.FKTABLENAME = fk.FKTABLENAME
+                                AND fkc.FKNAME = fk.FKNAME) ;;
   }
   label: "QC FKey without FKey column"
 

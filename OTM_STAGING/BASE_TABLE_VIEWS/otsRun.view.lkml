@@ -3,6 +3,7 @@ view: otsRun {
   label: "Run"
 
   dimension: run_id {
+    description: "Click for details of this run"
     primary_key: yes
     type: number
     sql: ${TABLE}.RUNID ;;
@@ -11,8 +12,8 @@ view: otsRun {
       url: "/explore/OTM/Staging?fields=Staging.run_id,otsTable.count,otsPrimaryKey.count,otsForeignKey.count,otsIndex.count,otsFunction.count,otsProcedure.count&f[Staging.run_id]={{ value }}"
     }
     link: {
-      label: "Errors"
-      url: "/explore/OTM/Staging?fields=Staging.run_id,otsQcTableWoTableColumn.count,otsQcTableColumnWoTable.count,otsQcFKeyWoFKeyColumn.count&f[Staging.run_id]={{ value }}"
+      label: "Inconsistencies"
+      url: "/explore/OTM/Staging?fields=Staging.run_id,otsQcTableWoTableColumn.count,otsQcTableColumnWoTable.count,otsQcFKeyWoFKeyColumn.count,otsQcFKeyColumnWoFKey.count&f[Staging.run_id]={{ value }}"
     }
   }
 

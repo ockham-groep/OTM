@@ -136,6 +136,11 @@ explore: Staging {
     relationship: one_to_many
     sql_on: ${otsTableColumnPrivilege.run_id} = ${Staging.run_id} ;;
   }
+  join: otsQcFKeyColumnWoFKey {
+    type:  left_outer
+    relationship: one_to_many
+    sql_on: ${otsQcFKeyColumnWoFKey.run_id} = ${Staging.run_id} ;;
+  }
   join: otsQcFKeyWoFKeyColumn {
     type:  left_outer
     relationship: one_to_many

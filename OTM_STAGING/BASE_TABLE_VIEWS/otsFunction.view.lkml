@@ -10,6 +10,10 @@ view: otsFunction {
   dimension: function_name {
     type: string
     sql: ${TABLE}.FUNCTIONNAME ;;
+    link: {
+      label: "Function columns"
+      url: "/explore/OTM/Staging?fields=otsFunctionColumn.function_name,otsFunctionColumn.column_name&f[Staging.run_id]={{ run_id._value }}&f[otsFunctionColumn.catalog_name]={{ catalog_name._value }}&f[otsFunctionColumn.schema_name]={{ schema_name._value }}&f[otsFunctionColumn.function_name]={{ value }}"
+    }
   }
 
   dimension: ind_table_result {
