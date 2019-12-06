@@ -1,20 +1,5 @@
 view: otsQcFKeyColumnWoFKey {
-  derived_table: {
-    sql: SELECT RUNID
-              , FKCATALOGNAME
-              , FKSCHEMANAME
-              , FKTABLENAME
-              , FKNAME
-              , FKCOLUMNNAME
-           FROM OTM_STAGING.OTSFOREIGNKEYCOLUMN fkc
-          WHERE NOT exists ( SELECT 1
-                               FROM OTM_STAGING.OTSFOREIGNKEY fk
-                              WHERE fk.RUNID = fkc.RUNID
-                                AND NVL( fk.FKCATALOGNAME, 'leeg') = NVL( fkc.FKCATALOGNAME, 'leeg')
-                                AND fk.FKSCHEMANAME = fkc.FKSCHEMANAME
-                                AND fk.FKTABLENAME = fkc.FKTABLENAME
-                                AND fk.FKNAME = fkc.FKNAME) ;;
-  }
+  sql_table_name: OTM_STAGING.OTSQCFKEYCOLUMNWOFKEY ;;
   label: "QC FKey column without FKey"
 
   dimension: fk_catalog_name {

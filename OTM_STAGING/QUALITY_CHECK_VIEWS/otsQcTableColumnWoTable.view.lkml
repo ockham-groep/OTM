@@ -1,18 +1,5 @@
 view: otsQcTableColumnWoTable {
-  derived_table: {
-    sql: SELECT RUNID
-              , CATALOGNAME
-              , SCHEMANAME
-              , TABLENAME
-              , COLUMNNAME
-           FROM OTM_STAGING.OTSTABLECOLUMN tc
-          WHERE NOT exists ( SELECT 1
-                               FROM OTM_STAGING.OTSTABLE tab
-                              WHERE tab.RUNID = tc.RUNID
-                                AND NVL( tab.CATALOGNAME, 'leeg') = NVL( tc.CATALOGNAME, 'leeg')
-                                AND tab.SCHEMANAME = tc.SCHEMANAME
-                                AND tab.TABLENAME = tc.TABLENAME) ;;
-  }
+  sql_table_name: OTM_STAGING.OTSQCTABLECOLUMNWOTABLE ;;
   label: "QC Table column without Table"
 
   dimension: catalog_name {
