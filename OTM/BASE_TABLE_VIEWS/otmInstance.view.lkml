@@ -1,7 +1,9 @@
 view: otmInstance {
   sql_table_name: OTM.OTMINSTANCE ;;
+  label: "Instance"
 
   dimension: instance_id {
+    primary_key: yes
     type: number
     sql: ${TABLE}.INSTANCEID ;;
   }
