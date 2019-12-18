@@ -4,7 +4,7 @@ connection: "otm_dev"
 #  max_cache_age: "24 hours"
 #}
 
-include: "OTM/*.view.lkml"                       # include all views in this project
+include: "OTM/BASE_TABLE_VIEWS/*.view.lkml"                       # include all views in this project
 include: "OTM_STAGING/BASE_TABLE_VIEWS/*.view.lkml"
 include: "OTM_STAGING/QUALITY_CHECK_VIEWS/*.view.lkml"
 
@@ -28,24 +28,74 @@ include: "OTM_STAGING/QUALITY_CHECK_VIEWS/*.view.lkml"
 label: "1) Ockhams Treasure Map"
 
 explore: Intake {
-  from: otmDBMS
-  join: otmDBMSVersion {
+  from: otmInstance
+  join: otmCatalog {
     type: left_outer
     relationship: one_to_many
-    sql_on: ${otmDBMSVersion.product_name} = ${Intake.product_name} ;;
+    sql_on: ${otmCatalog.instance_id} = ${Intake.instance_id} ;;
   }
-  join: otmDBMSEdition {
+  join: otmSchema {
     type: left_outer
     relationship: one_to_many
-    sql_on: ${otmDBMSEdition.product_name} = ${Intake.product_name} ;;
+    sql_on: ${otmSchema.instance_id} = ${Intake.instance_id}
+        and NVL( ${otmSchema.catalog_name}, 'leeg') = NVL( ${otmCatalog.catalog_name}, 'leeg') ;;
+  }
+  join: otmStack {
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${otmStack.system_name} = ${Intake.system_name}
+        and ${otmStack.stack_name} = ${Intake.stack_name} ;;
+  }
+  join: otmSystem {
+    type: inner
+    relationship: many_to_one
+    sql_on: ${otmSystem.system_name} = ${otmStack.system_name} ;;
+  }
+  join: otmProjectSystem {
+    type: inner
+    relationship: one_to_many
+    sql_on: ${otmProjectSystem.system_name} = ${otmSystem.system_name} ;;
+  }
+  join: otmProject {
+    type: inner
+    relationship: many_to_one
+    sql_on: ${otmProject.project_name} = ${otmProjectSystem.project_name} ;;
   }
   join: otmDBMSVersionEdition {
+    type: inner
+    relationship: many_to_one
+    sql_on: ${otmDBMSVersionEdition.product_name} = ${Intake.product_name}
+        and ${otmDBMSVersionEdition.product_version} = ${Intake.product_version}
+        and ${otmDBMSVersionEdition.product_edition} = ${Intake.product_edition} ;;
+  }
+  join: otmDBMSVersion {
+    type: inner
+    relationship: many_to_one
+    sql_on: ${otmDBMSVersion.product_name} = ${otmDBMSVersionEdition.product_name}
+        and ${otmDBMSVersion.product_version} = ${otmDBMSVersionEdition.product_version} ;;
+  }
+  join: otmDBMSEdition {
+    type: inner
+    relationship: many_to_one
+    sql_on: ${otmDBMSEdition.product_name} = ${otmDBMSVersion.product_name}
+        and ${otmDBMSEdition.product_edition} =${otmDBMSVersionEdition.product_edition};;
+  }
+  join: otmDBMS {
+    type: inner
+    relationship: many_to_one
+    sql_on: ${otmDBMS.product_name} = ${otmDBMSVersion.product_name}
+        and ${otmDBMS.product_name} = ${otmDBMSEdition.product_name};;
+  }
+  join: otmUser {
     type: left_outer
     relationship: one_to_many
-    sql_on: ${otmDBMSVersionEdition.product_name} = ${otmDBMSVersion.product_name}
-        and ${otmDBMSVersionEdition.product_version} = ${otmDBMSVersion.product_version}
-        and ${otmDBMSVersionEdition.product_name} = ${otmDBMSEdition.product_name}
-        and ${otmDBMSVersionEdition.product_edition} = ${otmDBMSEdition.product_edition} ;;
+    sql_on: ${otmUser.instance_id} = ${Intake.instance_id} ;;
+  }
+  join: otmConnection {
+    type: left_outer
+    relationship: one_to_many
+    sql_on: ${otmConnection.instance_id} = ${Intake.instance_id}
+        and ${otmConnection.user_name_connection} = ${otmUser.otm_user_name} ;;
   }
 }
 

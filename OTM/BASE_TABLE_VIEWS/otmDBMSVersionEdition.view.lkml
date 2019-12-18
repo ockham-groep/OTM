@@ -2,6 +2,25 @@ view: otmDBMSVersionEdition {
   label: "Installation"
   sql_table_name: OTM.OTMDBMSVERSIONEDITION ;;
 
+  dimension_group: last_ts_mut {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: ${TABLE}.LASTTSMUT ;;
+  }
+
+  dimension: last_user_name {
+    type: string
+    sql: ${TABLE}.LASTUSERNAME ;;
+  }
+
   dimension: memo {
     type: string
     sql: ${TABLE}.MEMO ;;
@@ -15,7 +34,7 @@ view: otmDBMSVersionEdition {
 
   dimension: pk {
     primary_key: yes
-#    hidden: yes
+    hidden: yes
     sql: CONCAT( CONCAT( ${product_name}, ${product_version}), ${product_edition}) ;;
   }
 
@@ -35,6 +54,12 @@ view: otmDBMSVersionEdition {
     hidden: yes
     type: string
     sql: ${TABLE}.PRODUCTVERSION ;;
+  }
+
+  dimension: unique_id {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.UNIQUEID ;;
   }
 
   measure: count {
