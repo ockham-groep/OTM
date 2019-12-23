@@ -63,6 +63,6 @@ view: otmSchema {
 
   measure: count {
     type: count
-    drill_fields: [catalog_name, last_user_name, schema_name]
+    drill_fields: [instance_id, catalog_name, schema_name]
   }
 }

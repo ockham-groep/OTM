@@ -207,3 +207,22 @@ explore: Staging {
     sql_on: ${otsQcTableWoTableColumn.run_id} = ${Staging.run_id} ;;
   }
 }
+
+explore: Structure {
+  from: otmSchema
+  join: otmCatalog {
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${otmCatalog.catalog_name} = ${Structure.catalog_name} ;;
+  }
+  join: otmInstance {
+    type: left_outer
+    relationship: one_to_many
+    sql_on: ${otmInstance.instance_id} = ${Structure.instance_id} ;;
+  }
+  join: otmTable {
+    type: left_outer
+    relationship: one_to_many
+    sql_on: ${otmTable.schema_id} = ${Structure.schema_id} ;;
+  }
+}
