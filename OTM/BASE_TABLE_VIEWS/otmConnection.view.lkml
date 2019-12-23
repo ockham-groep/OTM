@@ -2,6 +2,11 @@ view: otmConnection {
   label: "Connection"
   sql_table_name: OTM.otmConnection ;;
 
+  dimension: description {
+    type: string
+    sql: ${TABLE}.DESCRIPTION ;;
+  }
+
   dimension: instance_id {
     hidden: yes
     type: number

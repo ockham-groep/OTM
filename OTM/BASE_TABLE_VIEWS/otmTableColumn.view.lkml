@@ -27,6 +27,11 @@ view: otmTableColumn {
     sql: ${TABLE}.DECIMALDIGITS ;;
   }
 
+  dimension: description {
+    type: string
+    sql: ${TABLE}.DESCRIPTION ;;
+  }
+
   dimension: domain_name {
     type: string
     sql: ${TABLE}.DOMAINNAME ;;

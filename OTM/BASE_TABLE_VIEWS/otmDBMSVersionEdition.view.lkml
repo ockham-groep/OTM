@@ -2,6 +2,11 @@ view: otmDBMSVersionEdition {
   label: "Installation"
   sql_table_name: OTM.OTMDBMSVERSIONEDITION ;;
 
+  dimension: description {
+    type: string
+    sql: ${TABLE}.DESCRIPTION ;;
+  }
+
   dimension_group: last_ts_mut {
     type: time
     timeframes: [

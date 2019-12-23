@@ -2,6 +2,11 @@ view: otmInstance {
   sql_table_name: OTM.OTMINSTANCE ;;
   label: "Instance"
 
+  dimension: description {
+    type: string
+    sql: ${TABLE}.DESCRIPTION ;;
+  }
+
   dimension: instance_id {
     primary_key: yes
     type: number

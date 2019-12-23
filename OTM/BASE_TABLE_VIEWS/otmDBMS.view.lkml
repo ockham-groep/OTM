@@ -2,6 +2,11 @@ view: otmDBMS {
   label: "DBMS"
   sql_table_name: OTM.OTMDBMS ;;
 
+  dimension: description {
+    type: string
+    sql: ${TABLE}.DESCRIPTION ;;
+  }
+
   dimension_group: last_ts_mut {
     type: time
     timeframes: [

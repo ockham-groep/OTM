@@ -2,6 +2,11 @@ view: otmStack {
   sql_table_name: OTM.OTMSTACK ;;
   label: "Stack"
 
+  dimension: description {
+    type: string
+    sql: ${TABLE}.DESCRIPTION ;;
+  }
+
   dimension_group: last_ts_mut {
     type: time
     timeframes: [

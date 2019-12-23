@@ -2,6 +2,11 @@ view: otmUser {
   label: "User"
   sql_table_name: OTM.OTMUSER ;;
 
+  dimension: description {
+    type: string
+    sql: ${TABLE}.DESCRIPTION ;;
+  }
+
   dimension: instance_id {
     hidden: yes
     type: number

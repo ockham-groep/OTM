@@ -2,6 +2,11 @@ view: otmProjectSystem {
   sql_table_name: OTM.OTMPROJECTSYSTEM ;;
   label: "Project system"
 
+  dimension: description {
+    type: string
+    sql: ${TABLE}.DESCRIPTION ;;
+  }
+
   dimension_group: last_ts_mut {
     type: time
     timeframes: [

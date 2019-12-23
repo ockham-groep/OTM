@@ -7,6 +7,11 @@ sql_table_name: OTM.OTMCATALOG ;;
     sql: ${TABLE}.CATALOGNAME ;;
   }
 
+  dimension: description {
+    type: string
+    sql: ${TABLE}.DESCRIPTION ;;
+  }
+
   dimension: instance_id {
     hidden: yes
     type: number
