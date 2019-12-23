@@ -225,4 +225,10 @@ explore: Structure {
     relationship: one_to_many
     sql_on: ${otmTable.schema_id} = ${Structure.schema_id} ;;
   }
+  join: otmTableColumn {
+    type: left_outer
+    relationship: one_to_many
+    sql_on: ${otmTableColumn.table_name} = ${otmTable.table_name}
+        and ${otmTableColumn.schema_id} = ${otmTable.schema_id} ;;
+  }
 }
