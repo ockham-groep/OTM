@@ -49,6 +49,7 @@ view: otsType {
   }
 
   measure: count {
+    label: "# of types"
     type: count
     drill_fields: [schema_name, type_name, class_name, catalog_name]
   }

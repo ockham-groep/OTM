@@ -123,6 +123,7 @@ view: otsTableColumn {
   }
 
   measure: count {
+    label: "# of table columns"
     type: count
     drill_fields: [detail*]
   }

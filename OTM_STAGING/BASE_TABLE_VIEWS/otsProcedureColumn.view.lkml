@@ -124,6 +124,7 @@ view: otsProcedureColumn {
   }
 
   measure: count {
+    label: "# of procedure columns"
     type: count
     drill_fields: [detail*]
   }

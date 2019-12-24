@@ -47,6 +47,7 @@ view: otsPrimaryKeyColumn {
   }
 
   measure: count {
+    label: "# of pk columns"
     type: count
     drill_fields: [detail*]
   }

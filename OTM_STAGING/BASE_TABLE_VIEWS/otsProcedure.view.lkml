@@ -53,6 +53,7 @@ view: otsProcedure {
   }
 
   measure: count {
+    label: "# of procedures"
     type: count
     drill_fields: [detail*]
   }

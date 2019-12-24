@@ -42,6 +42,7 @@ view: otsPrimaryKey {
   }
 
   measure: count {
+    label: "# of primary keys"
     type: count
     drill_fields: [detail*]
   }

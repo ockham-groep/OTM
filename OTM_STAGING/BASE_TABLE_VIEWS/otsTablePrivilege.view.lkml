@@ -53,6 +53,7 @@ view: otsTablePrivilege {
   }
 
   measure: count {
+    label: "# of table privs"
     type: count
     drill_fields: [detail*]
   }

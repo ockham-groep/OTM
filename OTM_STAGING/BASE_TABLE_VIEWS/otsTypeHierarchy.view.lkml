@@ -44,6 +44,7 @@ view: otsTypeHierarchy {
   }
 
   measure: count {
+    label: "# of type hierarchies"
     type: count
     drill_fields: [detail*]
   }

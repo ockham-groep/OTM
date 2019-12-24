@@ -13,6 +13,7 @@ view: otmTable {
   }
 
   dimension_group: last_ts_mut {
+    hidden: yes
     type: time
     timeframes: [
       raw,
@@ -27,6 +28,7 @@ view: otmTable {
   }
 
   dimension: last_user_name {
+    hidden: yes
     type: string
     sql: ${TABLE}.LASTUSERNAME ;;
   }

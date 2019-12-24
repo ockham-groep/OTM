@@ -52,6 +52,7 @@ view: otsFunction {
   }
 
   measure: count {
+    label: "# of functions"
     type: count
     drill_fields: [detail*]
   }

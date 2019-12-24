@@ -86,6 +86,7 @@ view: otsForeignKey {
   }
 
   measure: count {
+    label: "# of foreign keys"
     type: count
     drill_fields: [detail*]
   }

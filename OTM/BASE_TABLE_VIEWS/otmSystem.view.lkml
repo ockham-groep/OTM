@@ -8,6 +8,7 @@ view: otmSystem {
   }
 
   dimension_group: last_ts_mut {
+    hidden: yes
     type: time
     timeframes: [
       raw,
@@ -22,6 +23,7 @@ view: otmSystem {
   }
 
   dimension: last_user_name {
+    hidden: yes
     type: string
     sql: ${TABLE}.LASTUSERNAME ;;
   }

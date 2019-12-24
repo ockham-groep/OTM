@@ -53,6 +53,7 @@ view: otsForeignKeyColumn {
   }
 
   measure: count {
+    label: "# of fk columns"
     type: count
     drill_fields: [detail*]
   }

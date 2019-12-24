@@ -53,6 +53,7 @@ view: otsIndexColumn {
   }
 
   measure: count {
+    label: "# of index columns"
     type: count
     drill_fields: [detail*]
   }

@@ -20,6 +20,7 @@ view: otmConnection {
   }
 
   dimension_group: last_ts_mut {
+    hidden: yes
     type: time
     timeframes: [
       raw,
@@ -34,6 +35,7 @@ view: otmConnection {
   }
 
   dimension: last_user_name {
+    hidden: yes
     type: string
     sql: ${TABLE}.LASTUSERNAME ;;
   }
@@ -50,6 +52,7 @@ view: otmConnection {
   }
 
   dimension: pk {
+    primary_key: yes
     hidden: yes
     type: string
     sql: ${instance_id}||${user_name_connection} ;;
@@ -67,6 +70,7 @@ view: otmConnection {
   }
 
   measure: count {
+    label: "Count"
     type: count
     drill_fields: [instance_name, last_user_name]
   }

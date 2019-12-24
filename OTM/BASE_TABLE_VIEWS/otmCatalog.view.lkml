@@ -25,6 +25,7 @@ sql_table_name: OTM.OTMCATALOG ;;
   }
 
   dimension_group: last_ts_mut {
+    hidden: yes
     type: time
     timeframes: [
       raw,
@@ -39,6 +40,7 @@ sql_table_name: OTM.OTMCATALOG ;;
   }
 
   dimension: last_user_name {
+    hidden: yes
     type: string
     sql: ${TABLE}.LASTUSERNAME ;;
   }

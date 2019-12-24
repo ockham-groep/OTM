@@ -83,6 +83,7 @@ view: otsTable {
   }
 
   measure: count {
+    label: "# of tables"
     type: count
     drill_fields: [table_list*]
   }

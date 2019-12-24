@@ -58,6 +58,7 @@ view: otsTableColumnPrivilege {
   }
 
   measure: count {
+    label: "# of tab col privs"
     type: count
     drill_fields: [column_name, catalog_name, schema_name, table_name]
   }

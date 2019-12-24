@@ -119,6 +119,7 @@ view: otsFunctionColumn {
   }
 
   measure: count {
+    label: "# of function columns"
     type: count
     drill_fields: [detail*]
   }

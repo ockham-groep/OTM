@@ -27,6 +27,7 @@ view: otmInstance {
   }
 
   dimension_group: last_ts_mut {
+    hidden: yes
     type: time
     timeframes: [
       raw,
@@ -41,6 +42,7 @@ view: otmInstance {
   }
 
   dimension: last_user_name {
+    hidden: yes
     type: string
     sql: ${TABLE}.LASTUSERNAME ;;
   }
@@ -97,6 +99,7 @@ view: otmInstance {
   }
 
   measure: count {
+    label: "# of instances"
     type: count
     drill_fields: [system_name, stack_name, instance_id, instance_name, product_name]
   }

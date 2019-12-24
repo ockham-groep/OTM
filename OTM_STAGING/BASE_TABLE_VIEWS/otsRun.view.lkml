@@ -58,6 +58,7 @@ view: otsRun {
   }
 
   measure: count {
+    label: "# of runs"
     type: count
     drill_fields: []
   }

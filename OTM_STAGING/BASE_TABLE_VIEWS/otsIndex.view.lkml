@@ -67,6 +67,7 @@ view: otsIndex {
   }
 
   measure: count {
+    label: "# of indices"
     type: count
     drill_fields: [detail*]
   }

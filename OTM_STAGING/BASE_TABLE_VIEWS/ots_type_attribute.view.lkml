@@ -109,6 +109,7 @@ view: otsTypeAttribute {
   }
 
   measure: count {
+    label: "# of type attributes"
     type: count
     drill_fields: [detail*]
   }
