@@ -22,7 +22,7 @@ view: otsIndex {
     sql: ${TABLE}.INDEXNAME ;;
     link: {
       label: "Index columns"
-      url: "/explore/OTM/Staging?fields=otsIndexColumn.table_name,otsIndexColumn.index_name,otsIndexColumn.column_name&f[Staging.run_id]={{ run_id._value }}&f[otsIndexColumn.catalog_name]={{ catalog_name._value }}&f[otsIndexColumn.schema_name]={{ schema_name._value }}&f[otsIndexColumn.table_name]={{ table_name._value }}&f[otsIndexColumn.index_name]={{ value }}"
+      url: "/explore/OTM/Staging?fields=otsIndexColumn.table_name,otsIndexColumn.index_name,otsIndexColumn.column_name&f[otsRun.run_id]={{ run_id._value }}&f[otsIndexColumn.catalog_name]={{ catalog_name._value }}&f[otsIndexColumn.schema_name]={{ schema_name._value }}&f[otsIndexColumn.table_name]={{ table_name._value }}&f[otsIndexColumn.index_name]={{ value }}"
     }
   }
 

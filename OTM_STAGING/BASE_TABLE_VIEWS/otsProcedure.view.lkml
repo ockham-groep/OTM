@@ -28,7 +28,7 @@ view: otsProcedure {
     sql: ${TABLE}.PROCEDURENAME ;;
     link: {
       label: "Procedre columns"
-      url: "/explore/OTM/Staging?fields=otsProcedureColumn.procedure_name,otsProcedureColumn.column_name&f[Staging.run_id]={{ run_id._value }}&f[otsProcedureColumn.catalog_name]={{ catalog_name._value }}&f[otsProcedureColumn.schema_name]={{ schema_name._value }}&f[otsProcedureColumn.procedure_name]={{ value }}"
+      url: "/explore/OTM/Staging?fields=otsProcedureColumn.procedure_name,otsProcedureColumn.column_name&f[otsRun.run_id]={{ run_id._value }}&f[otsProcedureColumn.catalog_name]={{ catalog_name._value }}&f[otsProcedureColumn.schema_name]={{ schema_name._value }}&f[otsProcedureColumn.procedure_name]={{ value }}"
     }
     }
 
