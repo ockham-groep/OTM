@@ -21,11 +21,11 @@ view: otsRun {
     sql: ${TABLE}.RUNID ;;
     link: {
       label: "Object counts"
-      url: "/explore/OTM/Staging?fields=Staging.run_id,otsTable.count,otsPrimaryKey.count,otsForeignKey.count,otsIndex.count,otsFunction.count,otsProcedure.count&f[Staging.run_id]={{ value }}"
+      url: "/explore/OTM/Staging?fields=otsRun.run_id,otsTable.count,otsPrimaryKey.count,otsForeignKey.count,otsIndex.count,otsFunction.count,otsProcedure.count&f[otsRun.run_id]={{ value }}"
     }
     link: {
       label: "Inconsistencies"
-      url: "/explore/OTM/Staging?fields=Staging.run_id,otsQcTableWoTableColumn.count,otsQcTableColumnWoTable.count,otsQcFKeyWoFKeyColumn.count,otsQcFKeyColumnWoFKey.count&f[Staging.run_id]={{ value }}"
+      url: "/explore/OTM/Staging?fields=otsRun.run_id,otsQcTableWoTableColumn.count,otsQcTableColumnWoTable.count,otsQcFKeyWoFKeyColumn.count,otsQcFKeyColumnWoFKey.count&f[otsRun.run_id]={{ value }}"
     }
   }
 
