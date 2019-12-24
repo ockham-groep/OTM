@@ -26,6 +26,16 @@ view: otmInstance {
     }
   }
 
+  dimension: instance_name_extended {
+    label: "Extended Instance"
+    type: string
+    sql: otmProject.project_name ;;
+    link: {
+      label: "Intake"
+      url: "/explore/OTM/Intake?fields=otmProject.project_name,otmSystem.system_name,otmStack.stack_name,Intake.instance_id,Intake.instance_name,otmDBMS.product_name&f[Intake.instance_id]={{ instance_id._value }}"
+    }
+  }
+
   dimension_group: last_ts_mut {
     hidden: yes
     type: time

@@ -28,23 +28,23 @@ include: "OTM_STAGING/QUALITY_CHECK_VIEWS/*.view.lkml"
 label: "1) Ockhams Treasure Map"
 
 explore: Intake {
-  from: otmInstance
+  view_name: otmInstance
   join: otmCatalog {
     type: left_outer
     relationship: one_to_many
-    sql_on: ${otmCatalog.instance_id} = ${Intake.instance_id} ;;
+    sql_on: ${otmCatalog.instance_id} = ${otmInstance.instance_id} ;;
   }
   join: otmSchema {
     type: left_outer
     relationship: one_to_many
-    sql_on: ${otmSchema.instance_id} = ${Intake.instance_id}
+    sql_on: ${otmSchema.instance_id} = ${otmInstance.instance_id}
         and NVL( ${otmSchema.catalog_name}, 'leeg') = NVL( ${otmCatalog.catalog_name}, 'leeg') ;;
   }
   join: otmStack {
     type: left_outer
     relationship: many_to_one
-    sql_on: ${otmStack.system_name} = ${Intake.system_name}
-        and ${otmStack.stack_name} = ${Intake.stack_name} ;;
+    sql_on: ${otmStack.system_name} = ${otmInstance.system_name}
+        and ${otmStack.stack_name} = ${otmInstance.stack_name} ;;
   }
   join: otmSystem {
     type: inner
@@ -64,9 +64,9 @@ explore: Intake {
   join: otmDBMSVersionEdition {
     type: inner
     relationship: many_to_one
-    sql_on: ${otmDBMSVersionEdition.product_name} = ${Intake.product_name}
-        and ${otmDBMSVersionEdition.product_version} = ${Intake.product_version}
-        and ${otmDBMSVersionEdition.product_edition} = ${Intake.product_edition} ;;
+    sql_on: ${otmDBMSVersionEdition.product_name} = ${otmInstance.product_name}
+        and ${otmDBMSVersionEdition.product_version} = ${otmInstance.product_version}
+        and ${otmDBMSVersionEdition.product_edition} = ${otmInstance.product_edition} ;;
   }
   join: otmDBMSVersion {
     type: inner
@@ -89,141 +89,141 @@ explore: Intake {
   join: otmUser {
     type: left_outer
     relationship: one_to_many
-    sql_on: ${otmUser.instance_id} = ${Intake.instance_id} ;;
+    sql_on: ${otmUser.instance_id} = ${otmInstance.instance_id} ;;
   }
   join: otmConnection {
     type: left_outer
     relationship: one_to_many
-    sql_on: ${otmConnection.instance_id} = ${Intake.instance_id}
+    sql_on: ${otmConnection.instance_id} = ${otmInstance.instance_id}
         and ${otmConnection.user_name_connection} = ${otmUser.otm_user_name} ;;
   }
 }
 
 explore: Staging {
-  from: otsRun
+  view_name: otsRun
   join: otsTable {
     type: left_outer
     relationship: one_to_many
-    sql_on: ${otsTable.run_id} = ${Staging.run_id} ;;
+    sql_on: ${otsTable.run_id} = ${otsRun.run_id} ;;
   }
   join: otsTableColumn {
     type: left_outer
     relationship: one_to_many
-    sql_on: ${otsTableColumn.run_id} = ${Staging.run_id} ;;
+    sql_on: ${otsTableColumn.run_id} = ${otsRun.run_id} ;;
   }
   join: otsType {
     type: left_outer
     relationship: one_to_many
-    sql_on: ${otsType.run_id} = ${Staging.run_id} ;;
+    sql_on: ${otsType.run_id} = ${otsRun.run_id} ;;
   }
   join: otsTypeAttribute {
     type: left_outer
     relationship: one_to_many
-    sql_on: ${otsTypeAttribute.run_id} = ${Staging.run_id} ;;
+    sql_on: ${otsTypeAttribute.run_id} = ${otsRun.run_id} ;;
   }
   join: otsTypeHierarchy {
     type: left_outer
     relationship: one_to_many
-    sql_on: ${otsTypeHierarchy.run_id} = ${Staging.run_id} ;;
+    sql_on: ${otsTypeHierarchy.run_id} = ${otsRun.run_id} ;;
   }
   join: otsPrimaryKey {
     type: left_outer
     relationship: one_to_many
-    sql_on: ${otsPrimaryKey.run_id} = ${Staging.run_id} ;;
+    sql_on: ${otsPrimaryKey.run_id} = ${otsRun.run_id} ;;
   }
   join: otsPrimaryKeyColumn {
     type: left_outer
     relationship: one_to_many
-    sql_on: ${otsPrimaryKeyColumn.run_id} = ${Staging.run_id} ;;
+    sql_on: ${otsPrimaryKeyColumn.run_id} = ${otsRun.run_id} ;;
   }
   join: otsForeignKey {
     type: left_outer
     relationship: one_to_many
-    sql_on: ${otsForeignKey.run_id} = ${Staging.run_id} ;;
+    sql_on: ${otsForeignKey.run_id} = ${otsRun.run_id} ;;
   }
   join: otsForeignKeyColumn {
     type: left_outer
     relationship: one_to_many
-    sql_on: ${otsForeignKeyColumn.run_id} = ${Staging.run_id} ;;
+    sql_on: ${otsForeignKeyColumn.run_id} = ${otsRun.run_id} ;;
   }
   join: otsIndex {
     type: left_outer
     relationship: one_to_many
-    sql_on: ${otsIndex.run_id} = ${Staging.run_id} ;;
+    sql_on: ${otsIndex.run_id} = ${otsRun.run_id} ;;
   }
   join: otsIndexColumn {
     type: left_outer
     relationship: one_to_many
-    sql_on: ${otsIndexColumn.run_id} = ${Staging.run_id} ;;
+    sql_on: ${otsIndexColumn.run_id} = ${otsRun.run_id} ;;
   }
   join: otsFunction {
     type: left_outer
     relationship: one_to_many
-    sql_on: ${otsFunction.run_id} = ${Staging.run_id} ;;
+    sql_on: ${otsFunction.run_id} = ${otsRun.run_id} ;;
   }
   join: otsFunctionColumn {
     type: left_outer
     relationship: one_to_many
-    sql_on: ${otsFunctionColumn.run_id} = ${Staging.run_id} ;;
+    sql_on: ${otsFunctionColumn.run_id} = ${otsRun.run_id} ;;
   }
   join: otsProcedure {
     type: left_outer
     relationship: one_to_many
-    sql_on: ${otsProcedure.run_id} = ${Staging.run_id} ;;
+    sql_on: ${otsProcedure.run_id} = ${otsRun.run_id} ;;
   }
   join: otsProcedureColumn {
     type: left_outer
     relationship: one_to_many
-    sql_on: ${otsProcedureColumn.run_id} = ${Staging.run_id} ;;
+    sql_on: ${otsProcedureColumn.run_id} = ${otsRun.run_id} ;;
   }
   join: otsTablePrivilege {
     type: left_outer
     relationship: one_to_many
-    sql_on: ${otsTablePrivilege.run_id} = ${Staging.run_id} ;;
+    sql_on: ${otsTablePrivilege.run_id} = ${otsRun.run_id} ;;
   }
   join: otsTableColumnPrivilege {
     type: left_outer
     relationship: one_to_many
-    sql_on: ${otsTableColumnPrivilege.run_id} = ${Staging.run_id} ;;
+    sql_on: ${otsTableColumnPrivilege.run_id} = ${otsRun.run_id} ;;
   }
   join: otsQcFKeyColumnWoFKey {
     type:  left_outer
     relationship: one_to_many
-    sql_on: ${otsQcFKeyColumnWoFKey.run_id} = ${Staging.run_id} ;;
+    sql_on: ${otsQcFKeyColumnWoFKey.run_id} = ${otsRun.run_id} ;;
   }
   join: otsQcFKeyWoFKeyColumn {
     type:  left_outer
     relationship: one_to_many
-    sql_on: ${otsQcFKeyWoFKeyColumn.run_id} = ${Staging.run_id} ;;
+    sql_on: ${otsQcFKeyWoFKeyColumn.run_id} = ${otsRun.run_id} ;;
   }
   join: otsQcTableColumnWoTable {
     type:  left_outer
     relationship: one_to_many
-    sql_on: ${otsQcTableColumnWoTable.run_id} = ${Staging.run_id} ;;
+    sql_on: ${otsQcTableColumnWoTable.run_id} = ${otsRun.run_id} ;;
   }
   join: otsQcTableWoTableColumn {
     type:  left_outer
     relationship: one_to_many
-    sql_on: ${otsQcTableWoTableColumn.run_id} = ${Staging.run_id} ;;
+    sql_on: ${otsQcTableWoTableColumn.run_id} = ${otsRun.run_id} ;;
   }
 }
 
 explore: Structure {
-  from: otmSchema
+  view_name: otmSchema
   join: otmCatalog {
     type: left_outer
     relationship: many_to_one
-    sql_on: ${otmCatalog.catalog_name} = ${Structure.catalog_name} ;;
+    sql_on: ${otmCatalog.catalog_name} = ${otmSchema.catalog_name} ;;
   }
   join: otmInstance {
     type: left_outer
     relationship: one_to_many
-    sql_on: ${otmInstance.instance_id} = ${Structure.instance_id} ;;
+    sql_on: ${otmInstance.instance_id} = ${otmSchema.instance_id} ;;
   }
   join: otmTable {
     type: left_outer
     relationship: one_to_many
-    sql_on: ${otmTable.schema_id} = ${Structure.schema_id} ;;
+    sql_on: ${otmTable.schema_id} = ${otmSchema.schema_id} ;;
   }
   join: otmTableColumn {
     type: left_outer
