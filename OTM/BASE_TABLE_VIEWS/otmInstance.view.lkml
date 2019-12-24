@@ -13,7 +13,7 @@ view: otmInstance {
     sql: ${TABLE}.INSTANCEID ;;
     link: {
       label: "Intake"
-      url: "/explore/OTM/Intake?fields=otmProject.project_name,otmSystem.system_name,otmStack.stack_name,Intake.instance_id,Intake.instance_name,otmDBMS.product_name&f[Intake.instance_id]={{ instance_id._value }}"
+      url: "/explore/OTM/Intake?fields=otmProject.project_name,otmSystem.system_name,otmStack.stack_name,otmInstance.instance_id,otmInstance.instance_name,otmDBMS.product_name&f[otmInstance.instance_id]={{ instance_id._value }}"
     }
   }
 
@@ -22,7 +22,7 @@ view: otmInstance {
     sql: ${TABLE}.INSTANCENAME ;;
     link: {
       label: "Intake"
-      url: "/explore/OTM/Intake?fields=otmProject.project_name,otmSystem.system_name,otmStack.stack_name,Intake.instance_id,Intake.instance_name,otmDBMS.product_name&f[Intake.instance_id]={{ instance_id._value }}"
+      url: "/explore/OTM/Intake?fields=otmProject.project_name,otmSystem.system_name,otmStack.stack_name,otmInstance.instance_id,otmInstance.instance_name,otmDBMS.product_name&f[otmInstance.instance_id]={{ instance_id._value }}"
     }
   }
 
@@ -32,7 +32,7 @@ view: otmInstance {
     sql: ${instance_id} || ' : ' || ${instance_name} || ' (' || ${system_name} || ' / ' || ${stack_name} || ')' ;;
     link: {
       label: "Intake"
-      url: "/explore/OTM/Intake?fields=otmProject.project_name,otmSystem.system_name,otmStack.stack_name,Intake.instance_id,Intake.instance_name,otmDBMS.product_name&f[Intake.instance_id]={{ instance_id._value }}"
+      url: "/explore/OTM/Intake?fields=otmProject.project_name,otmSystem.system_name,otmStack.stack_name,otmInstance.instance_id,otmInstance.instance_name,otmDBMS.product_name&f[otmInstance.instance_id]={{ instance_id._value }}"
     }
   }
 
@@ -80,7 +80,7 @@ view: otmInstance {
     sql: ${TABLE}.PRODUCTNAME ;;
     link: {
       label: "Installation"
-      url: "/explore/OTM/Intake?fields=Intake.instance_id,Intake.instance_name,otmDBMS.product_name,otmDBMSEdition.product_edition,otmDBMSVersion.product_version&f[Intake.instance_id]={{ instance_id._value }}"
+      url: "/explore/OTM/Intake?fields=otmInstance.instance_id,otmInstance.instance_name,otmDBMS.product_name,otmDBMSEdition.product_edition,otmDBMSVersion.product_version&f[otmInstance.instance_id]={{ instance_id._value }}"
     }
   }
 
