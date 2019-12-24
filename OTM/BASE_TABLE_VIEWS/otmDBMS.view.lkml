@@ -52,6 +52,7 @@ view: otmDBMS {
   }
 
   measure: count {
+    label: "# of DBMSs"
     type: count
     drill_fields: [product_name]
   }

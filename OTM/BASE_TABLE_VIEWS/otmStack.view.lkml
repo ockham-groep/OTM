@@ -64,6 +64,7 @@ view: otmStack {
   }
 
   measure: count {
+    label: "# of stacks"
     type: count
     drill_fields: [stack_name, last_user_name, system_name]
   }

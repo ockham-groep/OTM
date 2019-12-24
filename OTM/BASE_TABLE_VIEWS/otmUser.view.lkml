@@ -68,6 +68,7 @@ view: otmUser {
   }
 
   measure: count {
+    label: "# of users"
     type: count
     drill_fields: [last_user_name, otm_user_name]
   }

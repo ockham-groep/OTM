@@ -70,6 +70,7 @@ view: otmDBMSVersionEdition {
   }
 
   measure: count {
+    label: "# of installations"
     type: count
     drill_fields: [product_name]
   }

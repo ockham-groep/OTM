@@ -70,7 +70,7 @@ view: otmConnection {
   }
 
   measure: count {
-    label: "Count"
+    label: "# of connections"
     type: count
     drill_fields: [instance_name, last_user_name]
   }

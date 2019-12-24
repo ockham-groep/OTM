@@ -1,6 +1,6 @@
 view: otmCatalog {
   label: "Catalog"
-sql_table_name: OTM.OTMCATALOG ;;
+  sql_table_name: OTM.OTMCATALOG ;;
 
   dimension: catalog_name {
     type: string
@@ -70,6 +70,7 @@ sql_table_name: OTM.OTMCATALOG ;;
   }
 
   measure: count {
+    label: "# of catalogs"
     type: count
     drill_fields: [last_user_name, instance_name, catalog_name]
   }

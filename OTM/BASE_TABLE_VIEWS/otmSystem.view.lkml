@@ -52,6 +52,7 @@ view: otmSystem {
   }
 
   measure: count {
+    label: "# of systems"
     type: count
     drill_fields: [system_name, last_user_name]
   }

@@ -69,6 +69,7 @@ view: otmSchema {
   }
 
   measure: count {
+    label: "# of schemas"
     type: count
     drill_fields: [instance_id, catalog_name, schema_name]
   }

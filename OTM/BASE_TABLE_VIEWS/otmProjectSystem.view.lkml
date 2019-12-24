@@ -65,6 +65,7 @@ view: otmProjectSystem {
   }
 
   measure: count {
+    label: "# of project systems"
     type: count
     drill_fields: [last_user_name, system_name, project_name]
   }

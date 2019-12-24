@@ -63,6 +63,7 @@ view: otmDBMSVersion {
   }
 
   measure: count {
+    label: "# of versions"
     type: count
     drill_fields: [product_name]
   }

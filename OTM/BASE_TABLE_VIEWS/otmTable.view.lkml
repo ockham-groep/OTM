@@ -100,6 +100,7 @@ view: otmTable {
   }
 
   measure: count {
+    label: "# of tables"
     type: count
     drill_fields: [org_object_name, super_table_name, self_referencing_column_name, table_name, last_user_name]
   }

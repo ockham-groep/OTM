@@ -52,6 +52,7 @@ view: otmProject {
   }
 
   measure: count {
+    label: "# of projects"
     type: count
     drill_fields: [project_name, last_user_name]
   }

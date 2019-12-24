@@ -63,6 +63,7 @@ view: otmDBMSEdition {
   }
 
   measure: count {
+    label: "# of editions"
     type: count
     drill_fields: [product_name]
   }
