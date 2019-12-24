@@ -26,10 +26,10 @@ view: otmInstance {
     }
   }
 
-  dimension: instance_name_extended {
-    label: "Extended Instance"
+  dimension: long_instance_name {
+    label: "Instance name (long)"
     type: string
-    sql: otmProject.project_name ;;
+    sql: ${instance_id} || ' : ' || ${instance_name} || ' (' || ${system_name} || ' / ' || ${stack_name} || ')' ;;
     link: {
       label: "Intake"
       url: "/explore/OTM/Intake?fields=otmProject.project_name,otmSystem.system_name,otmStack.stack_name,Intake.instance_id,Intake.instance_name,otmDBMS.product_name&f[Intake.instance_id]={{ instance_id._value }}"
