@@ -231,4 +231,41 @@ explore: Structure {
     sql_on: ${otmTableColumn.table_name} = ${otmTable.table_name}
         and ${otmTableColumn.schema_id} = ${otmTable.schema_id} ;;
   }
+  join: otmKey {
+    type: left_outer
+    relationship: one_to_many
+    sql_on: ${otmKey.schema_id} = ${otmSchema.schema_id}
+        and ${otmKey.table_name} = ${otmTable.table_name} ;;
+  }
+  join: otmKeyColumn {
+    type: left_outer
+    relationship: one_to_many
+    sql_on: ${otmKeyColumn.schema_id} = ${otmKey.schema_id}
+        and ${otmKeyColumn.table_name} = ${otmKey.table_name}
+        and ${otmKeyColumn.key_name} = ${otmKey.key_name} ;;
+  }
+  join: otmIndex {
+    type: left_outer
+    relationship: one_to_many
+    sql_on: ${otmIndex.schema_id} = ${otmSchema.schema_id}
+        and ${otmIndex.table_name} = ${otmTable.table_name} ;;
+  }
+  join: otmIndexColumn {
+    type: left_outer
+    relationship: one_to_many
+    sql_on: ${otmIndexColumn.schema_id} = ${otmIndex.schema_id}
+        and ${otmIndexColumn.table_name} = ${otmIndex.table_name}
+        and ${otmIndexColumn.index_name} = ${otmIndex.index_name} ;;
+  }
+  join: otmConstraint {
+    type: left_outer
+    relationship: one_to_many
+    sql_on: ${otmConstraint.schema_id} = ${otmSchema.schema_id} ;;
+  }
+  join: otmConstraintTabCol {
+    type: left_outer
+    relationship: one_to_many
+    sql_on: ${otmConstraintTabCol.schema_id_constraint} = ${otmSchema.schema_id}
+        and ${otmConstraintTabCol.constraint_name} = ${otmConstraint.constraint_name} ;;
+  }
 }

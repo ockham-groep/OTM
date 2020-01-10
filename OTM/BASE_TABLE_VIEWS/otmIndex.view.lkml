@@ -1,6 +1,6 @@
-view: otmTable {
-  sql_table_name: OTM.OTMTABLE ;;
-  label: "Table"
+view: otmIndex {
+  sql_table_name: OTM.OTMINDEX ;;
+  label: "Index"
 
   dimension: cardinality {
     type: number
@@ -10,6 +10,26 @@ view: otmTable {
   dimension: description {
     type: string
     sql: ${TABLE}.DESCRIPTION ;;
+  }
+
+  dimension: filter_condition {
+    type: string
+    sql: ${TABLE}.FILTERCONDITION ;;
+  }
+
+  dimension: index_name {
+    type: string
+    sql: ${TABLE}.INDEXNAME ;;
+  }
+
+  dimension: index_qualifier {
+    type: string
+    sql: ${TABLE}.INDEXQUALIFIER ;;
+  }
+
+  dimension: index_type {
+    type: string
+    sql: ${TABLE}.INDEXTYPE ;;
   }
 
   dimension_group: last_ts_mut {
@@ -34,23 +54,14 @@ view: otmTable {
   }
 
   dimension: memo {
-    type: string
+    type: number
     sql: ${TABLE}.MEMO ;;
   }
 
   dimension: memo_id {
+    hidden: yes
     type: number
     sql: ${TABLE}.MEMOID ;;
-  }
-
-  dimension: org_object_name {
-    type: string
-    sql: ${TABLE}.ORGOBJECTNAME ;;
-  }
-
-  dimension: org_schema_id {
-    type: number
-    sql: ${TABLE}.ORGSCHEMAID ;;
   }
 
   dimension: pages {
@@ -60,43 +71,21 @@ view: otmTable {
 
   dimension: pk {
     primary_key: yes
+    hidden: yes
     type: string
-    sql: ${table_name} || ${schema_id} ;;
-  }
-
-  dimension: ref_generation {
-    type: string
-    sql: ${TABLE}.REFGENERATION ;;
-  }
-
-  dimension: remarks {
-    type: string
-    sql: ${TABLE}.REMARKS ;;
+    sql: ${index_name} || ${table_name} || ${schema_id} ;;
   }
 
   dimension: schema_id {
+    hidden: yes
     type: number
     sql: ${TABLE}.SCHEMAID ;;
   }
 
-  dimension: self_referencing_column_name {
-    type: string
-    sql: ${TABLE}.SELFREFERENCINGCOLUMNNAME ;;
-  }
-
-  dimension: super_table_name {
-    type: string
-    sql: ${TABLE}.SUPERTABLENAME ;;
-  }
-
   dimension: table_name {
+    hidden: yes
     type: string
     sql: ${TABLE}.TABLENAME ;;
-  }
-
-  dimension: table_type {
-    type: string
-    sql: ${TABLE}.TABLETYPE ;;
   }
 
   dimension: unique_id {
@@ -105,8 +94,8 @@ view: otmTable {
   }
 
   measure: count {
-    label: "# of tables"
+    label: "# of indices"
     type: count
-    drill_fields: [schema_id, table_name, table_type]
+    drill_fields: [schema_id, table_name, index_name]
   }
 }

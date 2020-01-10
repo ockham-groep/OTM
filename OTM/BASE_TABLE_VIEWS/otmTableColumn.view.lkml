@@ -139,6 +139,6 @@ view: otmTableColumn {
   measure: count {
     label: "# of columns"
     type: count
-    drill_fields: [last_user_name, domain_name, column_name, type_name, table_name]
+    drill_fields: [schema_id, table_name, column_name]
   }
 }
