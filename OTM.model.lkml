@@ -268,4 +268,15 @@ explore: Structure {
     sql_on: ${otmConstraintTabCol.schema_id_constraint} = ${otmSchema.schema_id}
         and ${otmConstraintTabCol.constraint_name} = ${otmConstraint.constraint_name} ;;
   }
+  join: otmDomain {
+    type: left_outer
+    relationship: one_to_many
+    sql_on: ${otmDomain.schema_id} = ${otmSchema.schema_id} ;;
+  }
+  join: otmDomainValue {
+    type: left_outer
+    relationship: one_to_many
+    sql_on: ${otmDomainValue.schema_id} = ${otmDomain.schema_id}
+        and ${otmDomainValue.domain_name} = ${otmDomain.domain_name};;
+  }
 }

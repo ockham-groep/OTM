@@ -1,11 +1,20 @@
-view: otmSchema {
-  label: "Schema"
-  sql_table_name: OTM.OTMSCHEMA ;;
+view: otmDomain {
+  sql_table_name: OTM.OTMDOMAIN ;;
+  label: "Domain"
 
-  dimension: catalog_name {
-    hidden: yes
+  dimension: column_default {
     type: string
-    sql: ${TABLE}.CATALOGNAME ;;
+    sql: ${TABLE}.COLUMNDEFAULT ;;
+  }
+
+  dimension: column_size {
+    type: number
+    sql: ${TABLE}.COLUMNSIZE ;;
+  }
+
+  dimension: decimal_digits {
+    type: number
+    sql: ${TABLE}.DECIMALDIGITS ;;
   }
 
   dimension: description {
@@ -13,10 +22,14 @@ view: otmSchema {
     sql: ${TABLE}.DESCRIPTION ;;
   }
 
-  dimension: instance_id {
-    hidden: yes
-    type: number
-    sql: ${TABLE}.INSTANCEID ;;
+  dimension: domain_name {
+    type: string
+    sql: ${TABLE}.DOMAINNAME ;;
+  }
+
+  dimension: ind_enumerate {
+    type: string
+    sql: ${TABLE}.INDENUMERATE ;;
   }
 
   dimension_group: last_ts_mut {
@@ -41,7 +54,7 @@ view: otmSchema {
   }
 
   dimension: memo {
-    type: string
+    type: number
     sql: ${TABLE}.MEMO ;;
   }
 
@@ -51,30 +64,32 @@ view: otmSchema {
     sql: ${TABLE}.MEMOID ;;
   }
 
-  dimension: schema_id {
+  dimension: pk {
     primary_key: yes
+    hidden: yes
+    type: string
+    sql: ${domain_name} || ${schema_id} ;;
+  }
+
+  dimension: schema_id {
+    hidden: yes
     type: number
     sql: ${TABLE}.SCHEMAID ;;
   }
 
-  dimension: schema_name {
+  dimension: type_name {
     type: string
-    sql: ${TABLE}.SCHEMANAME ;;
-    link: {
-      label: "Schema details"
-      url: "/explore/OTM/Structure?fields=otmTable.count,otmKey.count,otmIndex.count,otmConstraint.count,otmDomain.count&f[otmInstance.instance_id]={{ instance_id._value }}&f[otmSchema.schema_name]={{ schema_name._value }}"
-    }
-    }
+    sql: ${TABLE}.TYPENAME ;;
+  }
 
   dimension: unique_id {
-    hidden: yes
     type: number
     sql: ${TABLE}.UNIQUEID ;;
   }
 
   measure: count {
-    label: "# of schemas"
+    label: "# of domains"
     type: count
-    drill_fields: [instance_id, catalog_name, schema_name]
+    drill_fields: [schema_id, domain_name, type_name]
   }
 }
