@@ -15,6 +15,10 @@ view: otmInstance {
       label: "Intake"
       url: "/explore/OTM/Intake?fields=otmProject.project_name,otmSystem.system_name,otmStack.stack_name,otmInstance.instance_id,otmInstance.instance_name,otmDBMS.product_name&f[otmInstance.instance_id]={{ instance_id._value }}"
     }
+    link: {
+      label: "Structures"
+      url: "/explore/OTM/Structure?fields=otmInstance.instance_id,otmInstance.instance_name,otmCatalog.catalog_name, otmSchema.schema_name&f[otmInstance.instance_id]={{ instance_id._value }}"
+    }
   }
 
   dimension: instance_name {
@@ -23,6 +27,10 @@ view: otmInstance {
     link: {
       label: "Intake"
       url: "/explore/OTM/Intake?fields=otmProject.project_name,otmSystem.system_name,otmStack.stack_name,otmInstance.instance_id,otmInstance.instance_name,otmDBMS.product_name&f[otmInstance.instance_id]={{ instance_id._value }}"
+    }
+    link: {
+      label: "Structures"
+      url: "/explore/OTM/Structure?fields=otmInstance.instance_id,otmInstance.instance_name,otmCatalog.catalog_name, otmSchema.schema_name&f[otmInstance.instance_id]={{ instance_id._value }}"
     }
   }
 
@@ -33,6 +41,10 @@ view: otmInstance {
     link: {
       label: "Intake"
       url: "/explore/OTM/Intake?fields=otmProject.project_name,otmSystem.system_name,otmStack.stack_name,otmInstance.instance_id,otmInstance.instance_name,otmDBMS.product_name&f[otmInstance.instance_id]={{ instance_id._value }}"
+    }
+    link: {
+      label: "Structures"
+      url: "/explore/OTM/Structure?fields=otmInstance.instance_id,otmInstance.instance_name,otmCatalog.catalog_name, otmSchema.schema_name&f[otmInstance.instance_id]={{ instance_id._value }}"
     }
   }
 
